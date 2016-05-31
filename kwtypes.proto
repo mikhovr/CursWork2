@@ -1,0 +1,10 @@
+import "base.proto";
+import "articles_base.proto";
+
+message NamedEntityCand: TAuxDicArticle {}
+message PER: TAuxDicArticle {}
+message LOC: TAuxDicArticle {}
+message ORG: TAuxDicArticle {}
+message ORG_ABBR: TAuxDicArticle {}
+message loc_article: TAuxDicArticle {}
+message org_article: TAuxDicArticle {}

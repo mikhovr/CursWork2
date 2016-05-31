@@ -1,0 +1,794 @@
+===================== loc.cxx =====================
+
+coverage: 1, weight: 0.43333333
+L  ->  GeoGram[*Польша] :: 0.66666666
+    GeoGram  ->  FirstCand[*Польша] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*Польша] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*Польша]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  Польша :: 1
+
+
+
+===================== org.cxx =====================
+
+coverage: 1, weight: 0.33555555
+O  ->  JustQuotes[*Газпромом] :: 0.66666666
+    JustQuotes  ->  {NP,hreg1}[*Газпромом] :: 0.66666666
+        {NP,hreg1}  ->  Noun[*Газпромом] :: 0.66666666
+            Noun  ->  Газпромом :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 1, weight: 0.6
+S  ->  Location[*Польша] :: 1
+    Location  ->  {Word@@+}[*Польша] :: 1
+        {Word@@+}  ->  {Word@@}[*Польша] :: 1
+            {Word@@}  ->  Word[*Польша]<kwt=LOC> :: 1
+                Word  ->  Польша :: 1
+
+coverage: 1, weight: 0.36888888
+S  ->  Organization[*Газпромом] :: 1
+    Organization  ->  {Word@@@+}[*Газпромом] :: 1
+        {Word@@@+}  ->  {Word@@@}[*Газпромом] :: 1
+            {Word@@@}  ->  Word[*Газпромом]<kwt=ORG> :: 1
+                Word  ->  Газпромом :: 1
+
+
+
+==================== multiwords ====================
+
+Газпромом: NamedEntityCand, ORG, 
+	ИС, организация, 
+Польша: NamedEntityCand, LOC, 
+	ИС, локация, 
+в: org_article, 
+	bad_org, 
+с: org_article, 
+	bad_org, 
+
+
+===================== org.cxx =====================
+
+coverage: 1, weight: 0.34333333
+O  ->  LatCand[*Reuters] :: 0.66666666
+    LatCand  ->  Word[*Reuters] :: 0.66666666
+        Word  ->  Reuters :: 1
+
+coverage: 1, weight: 0.33515151
+O  ->  GovOrg[*правительства] :: 0.66666666
+    GovOrg  ->  Noun[*правительства]<kwt=правительство_гео> :: 0.66666666
+        Noun  ->  правительства :: 1
+
+
+
+===================== abbr.cxx =====================
+
+coverage: 1, weight: 0.34333333
+AbbrCand  ->  WordOk[*Reuters] :: 0.66666666
+    WordOk  ->  Word[*Reuters]<kwt=~bad_org> :: 0.66666666
+        Word  ->  Reuters :: 1
+
+
+
+===================== per.cxx =====================
+
+coverage: 2, weight: 0.3339831
+P  ->  MbName[*Петра Наимского] :: 0.44444444
+    MbName  ->  NotLat[*Петра Наимского] :: 0.44444444
+        NotLat  ->  NotNeuter[*Петра Наимского] :: 0.44444444
+            NotNeuter  ->  NotNoun[*Петра Наимского] :: 0.44444444
+                NotNoun  ->  NotAdj[*Петра Наимского] :: 0.44444444
+                    NotAdj  ->  NotPart[*Петра Наимского] :: 0.44444444
+                        NotPart  ->  NotAdv[*Петра Наимского] :: 0.44444444
+                            NotAdv  ->  NotProp[*Петра Наимского] :: 0.44444444
+                                NotProp  ->  NotVerb[*Петра Наимского] :: 0.44444444
+                                    NotVerb  ->  NotConj[*Петра Наимского] :: 0.44444444
+                                        NotConj  ->  NotPrep[*Петра Наимского] :: 0.44444444
+                                            NotPrep  ->  NotNum2[*Петра Наимского] :: 0.44444444
+                                                NotNum2  ->  NotNum1[*Петра Наимского] :: 0.44444444
+                                                    NotNum1  ->  NotNum[*Петра Наимского] :: 0.44444444
+                                                        NotNum  ->  Candidate[*Петра Наимского] :: 0.44444444
+                                                            Candidate  ->  Word[*Петра]  {Word@+}[Наимского] :: 0.44444444
+                                                            |   
+                                                            |__ Word  ->  Петра :: 1
+                                                            |   
+                                                            |__ {Word@+}  ->  {Word@}[*Наимского] :: 0.66666666
+                                                                    {Word@}  ->  Word[*Наимского] :: 0.66666666
+                                                                        Word  ->  Наимского :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33398692
+P  ->  MbName[*Петра] :: 0.66666666
+    MbName  ->  NotLat[*Петра] :: 0.66666666
+        NotLat  ->  NotNeuter[*Петра] :: 0.66666666
+            NotNeuter  ->  NotNoun[*Петра] :: 0.66666666
+                NotNoun  ->  NotAdj[*Петра] :: 0.66666666
+                    NotAdj  ->  NotPart[*Петра] :: 0.66666666
+                        NotPart  ->  NotAdv[*Петра] :: 0.66666666
+                            NotAdv  ->  NotProp[*Петра] :: 0.66666666
+                                NotProp  ->  NotVerb[*Петра] :: 0.66666666
+                                    NotVerb  ->  NotConj[*Петра] :: 0.66666666
+                                        NotConj  ->  NotPrep[*Петра] :: 0.66666666
+                                            NotPrep  ->  NotNum2[*Петра] :: 0.66666666
+                                                NotNum2  ->  NotNum1[*Петра] :: 0.66666666
+                                                    NotNum1  ->  NotNum[*Петра] :: 0.66666666
+                                                        NotNum  ->  Candidate[*Петра] :: 0.66666666
+                                                            Candidate  ->  Word[*Петра] :: 0.66666666
+                                                                Word  ->  Петра :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33391812
+P  ->  MbName[*Наимского] :: 0.66666666
+    MbName  ->  NotLat[*Наимского] :: 0.66666666
+        NotLat  ->  NotNeuter[*Наимского] :: 0.66666666
+            NotNeuter  ->  NotNoun[*Наимского] :: 0.66666666
+                NotNoun  ->  NotAdj[*Наимского] :: 0.66666666
+                    NotAdj  ->  NotPart[*Наимского] :: 0.66666666
+                        NotPart  ->  NotAdv[*Наимского] :: 0.66666666
+                            NotAdv  ->  NotProp[*Наимского] :: 0.66666666
+                                NotProp  ->  NotVerb[*Наимского] :: 0.66666666
+                                    NotVerb  ->  NotConj[*Наимского] :: 0.66666666
+                                        NotConj  ->  NotPrep[*Наимского] :: 0.66666666
+                                            NotPrep  ->  NotNum2[*Наимского] :: 0.66666666
+                                                NotNum2  ->  NotNum1[*Наимского] :: 0.66666666
+                                                    NotNum1  ->  NotNum[*Наимского] :: 0.66666666
+                                                        NotNum  ->  Candidate[*Наимского] :: 0.66666666
+                                                            Candidate  ->  Word[*Наимского] :: 0.66666666
+                                                                Word  ->  Наимского :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 1, weight: 0.41
+S  ->  Organization[*Reuters] :: 1
+    Organization  ->  {Word@@@+}[*Reuters] :: 1
+        {Word@@@+}  ->  {Word@@@}[*Reuters] :: 1
+            {Word@@@}  ->  Word[*Reuters]<kwt=ORG> :: 1
+                Word  ->  Reuters :: 1
+
+coverage: 1, weight: 0.36545454
+S  ->  Organization[*правительства] :: 1
+    Organization  ->  {Word@@@+}[*правительства] :: 1
+        {Word@@@+}  ->  {Word@@@}[*правительства] :: 1
+            {Word@@@}  ->  Word[*правительства]<kwt=ORG> :: 1
+                Word  ->  правительства :: 1
+
+coverage: 2, weight: 0.35250544
+S  ->  Person[*Петра_Наимского] :: 1
+    Person  ->  {Word@+}[*Петра_Наимского] :: 1
+        {Word@+}  ->  {Word@}[*Петра_Наимского] :: 1
+            {Word@}  ->  Word[*Петра_Наимского]<kwt=PER> :: 1
+                Word  ->  Петра_Наимского :: 1
+
+
+
+==================== multiwords ====================
+
+Reuters: NamedEntityCand, ORG, ORG_ABBR, 
+	ИС, организация, организация-аббр, 
+Петра_Наимского: NamedEntityCand, PER, 
+	ИС, персона, 
+правительства: NamedEntityCand, ORG, org_article, 
+	ИС, организация, правительство_гео, 
+
+
+==================== multiwords ====================
+
+к: org_article, 
+	bad_org, 
+
+
+===================== per.cxx =====================
+
+coverage: 1, weight: 0.33353494
+P  ->  MbName[*Наимский] :: 0.66666666
+    MbName  ->  NotLat[*Наимский] :: 0.66666666
+        NotLat  ->  NotNeuter[*Наимский] :: 0.66666666
+            NotNeuter  ->  NotNoun[*Наимский] :: 0.66666666
+                NotNoun  ->  NotAdj[*Наимский] :: 0.66666666
+                    NotAdj  ->  NotPart[*Наимский] :: 0.66666666
+                        NotPart  ->  NotAdv[*Наимский] :: 0.66666666
+                            NotAdv  ->  NotProp[*Наимский] :: 0.66666666
+                                NotProp  ->  NotVerb[*Наимский] :: 0.66666666
+                                    NotVerb  ->  NotConj[*Наимский] :: 0.66666666
+                                        NotConj  ->  NotPrep[*Наимский] :: 0.66666666
+                                            NotPrep  ->  NotNum2[*Наимский] :: 0.66666666
+                                                NotNum2  ->  NotNum1[*Наимский] :: 0.66666666
+                                                    NotNum1  ->  NotNum[*Наимский] :: 0.66666666
+                                                        NotNum  ->  Candidate[*Наимский] :: 0.66666666
+                                                            Candidate  ->  Word[*Наимский] :: 0.66666666
+                                                                Word  ->  Наимский :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 1, weight: 0.34395161
+S  ->  Person[*Наимский] :: 1
+    Person  ->  {Word@+}[*Наимский] :: 1
+        {Word@+}  ->  {Word@}[*Наимский] :: 1
+            {Word@}  ->  Word[*Наимский]<kwt=PER> :: 1
+                Word  ->  Наимский :: 1
+
+
+
+==================== multiwords ====================
+
+Наимский: NamedEntityCand, PER, 
+	ИС, персона, 
+в: org_article, 
+	bad_org, 
+
+
+===================== loc.cxx =====================
+
+coverage: 1, weight: 0.33461538
+L  ->  GeoGram[*Польше] :: 0.66666666
+    GeoGram  ->  FirstCand[*Польше] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*Польше] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*Польше]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  Польше :: 1
+
+coverage: 1, weight: 0.33416666
+L  ->  GeoGram[*Варшаве] :: 0.66666666
+    GeoGram  ->  FirstCand[*Варшаве] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*Варшаве] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*Варшаве]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  Варшаве :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 1, weight: 0.3602564
+S  ->  Location[*Польше] :: 1
+    Location  ->  {Word@@+}[*Польше] :: 1
+        {Word@@+}  ->  {Word@@}[*Польше] :: 1
+            {Word@@}  ->  Word[*Польше]<kwt=LOC> :: 1
+                Word  ->  Польше :: 1
+
+coverage: 1, weight: 0.355
+S  ->  Location[*Варшаве] :: 1
+    Location  ->  {Word@@+}[*Варшаве] :: 1
+        {Word@@+}  ->  {Word@@}[*Варшаве] :: 1
+            {Word@@}  ->  Word[*Варшаве]<kwt=LOC> :: 1
+                Word  ->  Варшаве :: 1
+
+
+
+==================== multiwords ====================
+
+Варшаве: NamedEntityCand, LOC, 
+	ИС, локация, 
+Польше: NamedEntityCand, LOC, 
+	ИС, локация, 
+в: org_article, 
+	bad_org, 
+
+
+===================== loc.cxx =====================
+
+coverage: 2, weight: 0.33577533
+L  ->  Address[*Северном море] :: 0.55555555
+    Address  ->  PreAddr[Северном]  AddressDescr[*море] :: 0.55555555
+    |   
+    |__ PreAddr  ->  Adj[*Северном] :: 0.66666666
+    |       Adj  ->  Северном :: 1
+    |   
+    |__ AddressDescr  ->  Word[*море]<kwt=адрес> :: 0.66666666
+            Word  ->  море :: 1
+
+coverage: 1, weight: 0.33385964
+L  ->  GeoGram[*Данию] :: 0.66666666
+    GeoGram  ->  FirstCand[*Данию] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*Данию] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*Данию]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  Данию :: 1
+
+coverage: 2, weight: 0.33421168
+L  ->  Address[*Балтийское море] :: 0.55555555
+    Address  ->  PreAddr[Балтийское]  AddressDescr[*море] :: 0.55555555
+    |   
+    |__ PreAddr  ->  Adj[*Балтийское] :: 0.66666666
+    |       Adj  ->  Балтийское :: 1
+    |   
+    |__ AddressDescr  ->  Word[*море]<kwt=адрес> :: 0.66666666
+            Word  ->  море :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33461538
+L  ->  GeoGram[*Северном] :: 0.66666666
+    GeoGram  ->  FirstCand[*Северном] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*Северном] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*Северном]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  Северном :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 2, weight: 0.3602564
+S  ->  Location[*Северном_море] :: 1
+    Location  ->  {Word@@+}[*Северном_море] :: 1
+        {Word@@+}  ->  {Word@@}[*Северном_море] :: 1
+            {Word@@}  ->  Word[*Северном_море]<kwt=LOC> :: 1
+                Word  ->  Северном_море :: 1
+
+coverage: 1, weight: 0.35146198
+S  ->  Location[*Данию] :: 1
+    Location  ->  {Word@@+}[*Данию] :: 1
+        {Word@@+}  ->  {Word@@}[*Данию] :: 1
+            {Word@@}  ->  Word[*Данию]<kwt=LOC> :: 1
+                Word  ->  Данию :: 1
+
+coverage: 2, weight: 0.34968253
+S  ->  Location[*Балтийское_море] :: 1
+    Location  ->  {Word@@+}[*Балтийское_море] :: 1
+        {Word@@+}  ->  {Word@@}[*Балтийское_море] :: 1
+            {Word@@}  ->  Word[*Балтийское_море]<kwt=LOC> :: 1
+                Word  ->  Балтийское_море :: 1
+
+
+
+==================== multiwords ====================
+
+Балтийское_море: NamedEntityCand, LOC, 
+	ИС, локация, 
+В: org_article, 
+	bad_org, 
+Данию: NamedEntityCand, LOC, 
+	ИС, локация, 
+Северном: loc_article, 
+	гео_напр, 
+Северном_море: NamedEntityCand, LOC, 
+	ИС, локация, 
+в: org_article, 
+	bad_org, 
+и: org_article, 
+	bad_org, 
+к: org_article, 
+	bad_org, 
+море: loc_article, 
+	адрес, 
+
+
+==================== multiwords ====================
+
+в: org_article, 
+	bad_org, 
+
+
+===================== loc.cxx =====================
+
+coverage: 1, weight: 0.34333333
+L  ->  GeoGram[*Россия] :: 0.66666666
+    GeoGram  ->  FirstCand[*Россия] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*Россия] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*Россия]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  Россия :: 1
+
+coverage: 1, weight: 0.33690476
+L  ->  GeoGram[*Польшу] :: 0.66666666
+    GeoGram  ->  FirstCand[*Польшу] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*Польшу] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*Польшу]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  Польшу :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 1, weight: 0.41
+S  ->  Location[*Россия] :: 1
+    Location  ->  {Word@@+}[*Россия] :: 1
+        {Word@@+}  ->  {Word@@}[*Россия] :: 1
+            {Word@@}  ->  Word[*Россия]<kwt=LOC> :: 1
+                Word  ->  Россия :: 1
+
+coverage: 1, weight: 0.37857142
+S  ->  Location[*Польшу] :: 1
+    Location  ->  {Word@@+}[*Польшу] :: 1
+        {Word@@+}  ->  {Word@@}[*Польшу] :: 1
+            {Word@@}  ->  Word[*Польшу]<kwt=LOC> :: 1
+                Word  ->  Польшу :: 1
+
+
+
+==================== multiwords ====================
+
+Польшу: NamedEntityCand, LOC, 
+	ИС, локация, 
+Россия: NamedEntityCand, LOC, 
+	ИС, локация, 
+в: org_article, 
+	bad_org, 
+
+
+===================== loc.cxx =====================
+
+coverage: 1, weight: 0.35
+L  ->  GeoGram[*Польши] :: 0.66666666
+    GeoGram  ->  FirstCand[*Польши] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*Польши] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*Польши]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  Польши :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 1, weight: 0.43333333
+S  ->  Location[*Польши] :: 1
+    Location  ->  {Word@@+}[*Польши] :: 1
+        {Word@@+}  ->  {Word@@}[*Польши] :: 1
+            {Word@@}  ->  Word[*Польши]<kwt=LOC> :: 1
+                Word  ->  Польши :: 1
+
+
+
+==================== multiwords ====================
+
+Польши: NamedEntityCand, LOC, 
+	ИС, локация, 
+
+
+===================== loc.cxx =====================
+
+coverage: 1, weight: 0.33515151
+L  ->  GeoGram[*Польши] :: 0.66666666
+    GeoGram  ->  FirstCand[*Польши] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*Польши] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*Польши]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  Польши :: 1
+
+
+
+===================== org.cxx =====================
+
+coverage: 1, weight: 0.33611111
+O  ->  JustQuotes[*Газпрома] :: 0.66666666
+    JustQuotes  ->  {NP,hreg1}[*Газпрома] :: 0.66666666
+        {NP,hreg1}  ->  Noun[*Газпрома] :: 0.66666666
+            Noun  ->  Газпрома :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 1, weight: 0.37314814
+S  ->  Organization[*Газпрома] :: 1
+    Organization  ->  {Word@@@+}[*Газпрома] :: 1
+        {Word@@@+}  ->  {Word@@@}[*Газпрома] :: 1
+            {Word@@@}  ->  Word[*Газпрома]<kwt=ORG> :: 1
+                Word  ->  Газпрома :: 1
+
+coverage: 1, weight: 0.36545454
+S  ->  Location[*Польши] :: 1
+    Location  ->  {Word@@+}[*Польши] :: 1
+        {Word@@+}  ->  {Word@@}[*Польши] :: 1
+            {Word@@}  ->  Word[*Польши]<kwt=LOC> :: 1
+                Word  ->  Польши :: 1
+
+
+
+==================== multiwords ====================
+
+Газпрома: NamedEntityCand, ORG, 
+	ИС, организация, 
+Польши: NamedEntityCand, LOC, 
+	ИС, локация, 
+
+
+===================== loc.cxx =====================
+
+coverage: 1, weight: 0.33391812
+L  ->  GeoGram[*Европе] :: 0.66666666
+    GeoGram  ->  FirstCand[*Европе] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*Европе] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*Европе]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  Европе :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 1, weight: 0.35146198
+S  ->  Location[*Европе] :: 1
+    Location  ->  {Word@@+}[*Европе] :: 1
+        {Word@@+}  ->  {Word@@}[*Европе] :: 1
+            {Word@@}  ->  Word[*Европе]<kwt=LOC> :: 1
+                Word  ->  Европе :: 1
+
+
+
+==================== multiwords ====================
+
+Европе: NamedEntityCand, LOC, 
+	ИС, локация, 
+в: org_article, 
+	bad_org, 
+
+
+===================== org.cxx =====================
+
+coverage: 1, weight: 0.34333333
+O  ->  JustQuotes[*Газпром] :: 0.66666666
+    JustQuotes  ->  {NP,hreg1}[*Газпром] :: 0.66666666
+        {NP,hreg1}  ->  Noun[*Газпром] :: 0.66666666
+            Noun  ->  Газпром :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 1, weight: 0.41
+S  ->  Organization[*Газпром] :: 1
+    Organization  ->  {Word@@@+}[*Газпром] :: 1
+        {Word@@@+}  ->  {Word@@@}[*Газпром] :: 1
+            {Word@@@}  ->  Word[*Газпром]<kwt=ORG> :: 1
+                Word  ->  Газпром :: 1
+
+
+
+==================== multiwords ====================
+
+В: org_article, 
+	bad_org, 
+Газпром: NamedEntityCand, ORG, 
+	ИС, организация, 
+в: org_article, 
+	bad_org, 
+
+
+===================== org.cxx =====================
+
+coverage: 2, weight: 0.33690476
+O  ->  LatCand[*GDF Suez] :: 0.43333333
+    LatCand  ->  Word[*GDF]  {Word@+}[Suez] :: 0.43333333
+    |   
+    |__ Word  ->  GDF :: 1
+    |   
+    |__ {Word@+}  ->  {Word@}[*Suez] :: 0.66666666
+            {Word@}  ->  Word[*Suez] :: 0.66666666
+                Word  ->  Suez :: 1
+
+coverage: 1, weight: 0.33515151
+O  ->  LatCand[*Wingas] :: 0.66666666
+    LatCand  ->  Word[*Wingas] :: 0.66666666
+        Word  ->  Wingas :: 1
+
+coverage: 1, weight: 0.33443223
+O  ->  LatCand[*SPP] :: 0.66666666
+    LatCand  ->  Word[*SPP] :: 0.66666666
+        Word  ->  SPP :: 1
+
+coverage: 1, weight: 0.33406862
+O  ->  LatCand[*Botas] :: 0.66666666
+    LatCand  ->  Word[*Botas] :: 0.66666666
+        Word  ->  Botas :: 1
+
+coverage: 1, weight: 0.33385964
+O  ->  LatCand[*Edison] :: 0.66666666
+    LatCand  ->  Word[*Edison] :: 0.66666666
+        Word  ->  Edison :: 1
+
+coverage: 2, weight: 0.33372859
+O  ->  LatCand[*Sinergie Italiane] :: 0.43333333
+    LatCand  ->  Word[*Sinergie]  {Word@+}[Italiane] :: 0.43333333
+    |   
+    |__ Word  ->  Sinergie :: 1
+    |   
+    |__ {Word@+}  ->  {Word@}[*Italiane] :: 0.66666666
+            {Word@}  ->  Word[*Italiane] :: 0.66666666
+                Word  ->  Italiane :: 1
+
+coverage: 1, weight: 0.33364102
+O  ->  LatCand[*Econgas] :: 0.66666666
+    LatCand  ->  Word[*Econgas] :: 0.66666666
+        Word  ->  Econgas :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33809523
+O  ->  LatCand[*GDF] :: 0.66666666
+    LatCand  ->  Word[*GDF] :: 0.66666666
+        Word  ->  GDF :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33690476
+O  ->  LatCand[*Suez] :: 0.66666666
+    LatCand  ->  Word[*Suez] :: 0.66666666
+        Word  ->  Suez :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33376623
+O  ->  LatCand[*Sinergie] :: 0.66666666
+    LatCand  ->  Word[*Sinergie] :: 0.66666666
+        Word  ->  Sinergie :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33372859
+O  ->  LatCand[*Italiane] :: 0.66666666
+    LatCand  ->  Word[*Italiane] :: 0.66666666
+        Word  ->  Italiane :: 1
+
+
+
+===================== abbr.cxx =====================
+
+coverage: 2, weight: 0.33690476
+AbbrCand  ->  WordOk[*GDF]  {WordOk@@+}[Suez] :: 0.43333333
+|   
+|__ WordOk  ->  Word[*GDF]<kwt=~bad_org> :: 0.66666666
+|       Word  ->  GDF :: 1
+|   
+|__ {WordOk@@+}  ->  {WordOk@@}[*Suez] :: 0.66666666
+        {WordOk@@}  ->  WordOk[*Suez] :: 0.66666666
+            WordOk  ->  Word[*Suez]<kwt=~bad_org> :: 0.66666666
+                Word  ->  Suez :: 1
+
+coverage: 1, weight: 0.33515151
+AbbrCand  ->  WordOk[*Wingas] :: 0.66666666
+    WordOk  ->  Word[*Wingas]<kwt=~bad_org> :: 0.66666666
+        Word  ->  Wingas :: 1
+
+coverage: 1, weight: 0.33443223
+AbbrCand  ->  WordOk[*SPP] :: 0.66666666
+    WordOk  ->  Word[*SPP]<kwt=~bad_org> :: 0.66666666
+        Word  ->  SPP :: 1
+
+coverage: 1, weight: 0.33406862
+AbbrCand  ->  WordOk[*Botas] :: 0.66666666
+    WordOk  ->  Word[*Botas]<kwt=~bad_org> :: 0.66666666
+        Word  ->  Botas :: 1
+
+coverage: 1, weight: 0.33385964
+AbbrCand  ->  WordOk[*Edison] :: 0.66666666
+    WordOk  ->  Word[*Edison]<kwt=~bad_org> :: 0.66666666
+        Word  ->  Edison :: 1
+
+coverage: 2, weight: 0.33372859
+AbbrCand  ->  WordOk[*Sinergie]  {WordOk@@+}[Italiane] :: 0.43333333
+|   
+|__ WordOk  ->  Word[*Sinergie]<kwt=~bad_org> :: 0.66666666
+|       Word  ->  Sinergie :: 1
+|   
+|__ {WordOk@@+}  ->  {WordOk@@}[*Italiane] :: 0.66666666
+        {WordOk@@}  ->  WordOk[*Italiane] :: 0.66666666
+            WordOk  ->  Word[*Italiane]<kwt=~bad_org> :: 0.66666666
+                Word  ->  Italiane :: 1
+
+coverage: 1, weight: 0.33364102
+AbbrCand  ->  WordOk[*Econgas] :: 0.66666666
+    WordOk  ->  Word[*Econgas]<kwt=~bad_org> :: 0.66666666
+        Word  ->  Econgas :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33809523
+AbbrCand  ->  WordOk[*GDF] :: 0.66666666
+    WordOk  ->  Word[*GDF]<kwt=~bad_org> :: 0.66666666
+        Word  ->  GDF :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33690476
+AbbrCand  ->  WordOk[*Suez] :: 0.66666666
+    WordOk  ->  Word[*Suez]<kwt=~bad_org> :: 0.66666666
+        Word  ->  Suez :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33376623
+AbbrCand  ->  WordOk[*Sinergie] :: 0.66666666
+    WordOk  ->  Word[*Sinergie]<kwt=~bad_org> :: 0.66666666
+        Word  ->  Sinergie :: 1
+
+DROPPED OCCURRENCE, coverage: 1, weight: 0.33372859
+AbbrCand  ->  WordOk[*Italiane] :: 0.66666666
+    WordOk  ->  Word[*Italiane]<kwt=~bad_org> :: 0.66666666
+        Word  ->  Italiane :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 2, weight: 0.38571428
+S  ->  Organization[*GDF_Suez] :: 1
+    Organization  ->  {Word@@@+}[*GDF_Suez] :: 1
+        {Word@@@+}  ->  {Word@@@}[*GDF_Suez] :: 1
+            {Word@@@}  ->  Word[*GDF_Suez]<kwt=ORG> :: 1
+                Word  ->  GDF_Suez :: 1
+
+coverage: 1, weight: 0.36888888
+S  ->  Organization[*Wingas] :: 1
+    Organization  ->  {Word@@@+}[*Wingas] :: 1
+        {Word@@@+}  ->  {Word@@@}[*Wingas] :: 1
+            {Word@@@}  ->  Word[*Wingas]<kwt=ORG> :: 1
+                Word  ->  Wingas :: 1
+
+coverage: 1, weight: 0.3602564
+S  ->  Organization[*SPP] :: 1
+    Organization  ->  {Word@@@+}[*SPP] :: 1
+        {Word@@@+}  ->  {Word@@@}[*SPP] :: 1
+            {Word@@@}  ->  Word[*SPP]<kwt=ORG> :: 1
+                Word  ->  SPP :: 1
+
+coverage: 1, weight: 0.355
+S  ->  Organization[*Botas] :: 1
+    Organization  ->  {Word@@@+}[*Botas] :: 1
+        {Word@@@+}  ->  {Word@@@}[*Botas] :: 1
+            {Word@@@}  ->  Word[*Botas]<kwt=ORG> :: 1
+                Word  ->  Botas :: 1
+
+coverage: 1, weight: 0.35146198
+S  ->  Organization[*Edison] :: 1
+    Organization  ->  {Word@@@+}[*Edison] :: 1
+        {Word@@@+}  ->  {Word@@@}[*Edison] :: 1
+            {Word@@@}  ->  Word[*Edison]<kwt=ORG> :: 1
+                Word  ->  Edison :: 1
+
+coverage: 2, weight: 0.34968253
+S  ->  Organization[*Sinergie_Italiane] :: 1
+    Organization  ->  {Word@@@+}[*Sinergie_Italiane] :: 1
+        {Word@@@+}  ->  {Word@@@}[*Sinergie_Italiane] :: 1
+            {Word@@@}  ->  Word[*Sinergie_Italiane]<kwt=ORG> :: 1
+                Word  ->  Sinergie_Italiane :: 1
+
+coverage: 1, weight: 0.34758453
+S  ->  Organization[*Econgas] :: 1
+    Organization  ->  {Word@@@+}[*Econgas] :: 1
+        {Word@@@+}  ->  {Word@@@}[*Econgas] :: 1
+            {Word@@@}  ->  Word[*Econgas]<kwt=ORG> :: 1
+                Word  ->  Econgas :: 1
+
+
+
+==================== multiwords ====================
+
+Botas: NamedEntityCand, ORG, ORG_ABBR, 
+	ИС, организация, организация-аббр, 
+Econgas: NamedEntityCand, ORG, ORG_ABBR, 
+	ИС, организация, организация-аббр, 
+Edison: NamedEntityCand, ORG, ORG_ABBR, 
+	ИС, организация, организация-аббр, 
+GDF_Suez: NamedEntityCand, ORG, ORG_ABBR, 
+	ИС, организация, организация-аббр, 
+SPP: NamedEntityCand, ORG, ORG_ABBR, 
+	ИС, организация, организация-аббр, 
+Sinergie_Italiane: NamedEntityCand, ORG, ORG_ABBR, 
+	ИС, организация, организация-аббр, 
+Wingas: NamedEntityCand, ORG, ORG_ABBR, 
+	ИС, организация, организация-аббр, 
+и: org_article, 
+	bad_org, 
+
+
+===================== loc.cxx =====================
+
+coverage: 1, weight: 0.33406862
+L  ->  GeoGram[*США] :: 0.66666666
+    GeoGram  ->  FirstCand[*США] :: 0.66666666
+        FirstCand  ->  {NotNum,kw=~bad_loc}[*США] :: 0.66666666
+            {NotNum,kw=~bad_loc}  ->  AnyWord[*США]<kwt=~bad_loc> :: 0.66666666
+                AnyWord  ->  США :: 1
+
+
+
+===================== abbr.cxx =====================
+
+coverage: 1, weight: 0.33406862
+AbbrCand  ->  WordOk[*США] :: 0.66666666
+    WordOk  ->  Word[*США]<kwt=~bad_org> :: 0.66666666
+        Word  ->  США :: 1
+
+
+
+===================== main.cxx =====================
+
+coverage: 1, weight: 0.35367646
+S  ->  Location[*США] :: 1
+    Location  ->  {Word@@+}[*США] :: 1
+        {Word@@+}  ->  {Word@@}[*США] :: 1
+            {Word@@}  ->  Word[*США]<kwt=LOC> :: 1
+                Word  ->  США :: 1
+
+
+
+==================== multiwords ====================
+
+США: NamedEntityCand, LOC, ORG_ABBR, 
+	ИС, локация, организация-аббр, 
+в: org_article, 
+	bad_org, 
+
+

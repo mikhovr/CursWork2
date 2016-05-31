@@ -1,0 +1,41 @@
+encoding "utf8";               
+
+import "base.proto";           // подключаем описания protobuf-типов (TAuxDicArticle и прочих)
+import "articles_base.proto";  // Файлы base.proto и articles_base.proto встроены в компилятор.
+                               // Их необходимо включать в начало любого gzt-словаря.   
+import "kwtypes.proto"; 
+
+org_article "орг_пре"
+{
+    key = "ООО" | "ОАО" | "ЗАО" | "фирма" | "компания" | "организация" | "корпорация" | "группа"
+}
+
+org_article "bad_org"
+{
+    key = "в" | "у" | "с" | "к" | "о" | "и" | "а" | "я"  
+}
+
+org_article "правительство_сокр"
+{
+    key =  {"russian_gov.txt" type=FILE }
+}
+
+org_article "правительство_дескр"
+{
+    key = {"gov_names.txt" type = FILE}
+}
+
+org_article "правительство_гео"
+{
+    key =  "правительство" | "мэрия" | "парламент" | "совет" | "совбез" | "госдеп"
+}
+
+org_article "сми_дескр"
+{
+    key = {"mass_media.txt" type = FILE}
+}
+
+org_article "проч_орг"
+{
+    key = "!ИГ"
+}

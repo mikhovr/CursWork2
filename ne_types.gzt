@@ -1,0 +1,28 @@
+encoding "utf8";               
+
+import "base.proto";           // подключаем описания protobuf-типов (TAuxDicArticle и прочих)
+import "articles_base.proto";  // Файлы base.proto и articles_base.proto встроены в компилятор.
+                               // Их необходимо включать в начало любого gzt-словаря.
+import "facttypes.proto";      
+import "kwtypes.proto";                         
+
+
+PER "персона"
+{
+    key = { "tomita:per.cxx" type=CUSTOM }
+}
+
+LOC "локация"
+{
+    key = { "tomita:loc.cxx" type=CUSTOM }
+}
+
+ORG "организация"
+{
+    key = { "tomita:org.cxx" type=CUSTOM }
+}
+
+ORG_ABBR "организация-аббр"
+{
+    key = { "tomita:abbr.cxx" type=CUSTOM}
+}

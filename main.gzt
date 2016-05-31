@@ -1,0 +1,17 @@
+encoding "utf8";               
+
+import "base.proto";           // подключаем описания protobuf-типов (TAuxDicArticle и прочих)
+import "articles_base.proto";  // Файлы base.proto и articles_base.proto встроены в компилятор.
+                               // Их необходимо включать в начало любого gzt-словаря.
+import "facttypes.proto";   
+import "kwtypes.proto";  
+import "ne_types.gzt";
+import "loc_dict.gzt";
+import "org_dict.gzt";
+
+
+NamedEntityCand "ИС"
+{
+    key = { "tomita:main.cxx" type=CUSTOM }
+}
+

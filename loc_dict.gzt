@@ -1,0 +1,26 @@
+encoding "utf8";               
+
+import "base.proto";           // подключаем описания protobuf-типов (TAuxDicArticle и прочих)
+import "articles_base.proto";  // Файлы base.proto и articles_base.proto встроены в компилятор.
+                               // Их необходимо включать в начало любого gzt-словаря.   
+import "kwtypes.proto"; 
+
+loc_article "штат"
+{
+    key = { "us_states.txt" type=FILE }
+}
+
+loc_article "гео_напр"
+{
+    key = "северный" | "южный" | "западный" | "восточный" | "северо-западный" | "северо-восточный" | "юго-западный" | "юго-восточный" 
+}
+
+loc_article "адрес"
+{
+    key =  {"address_nouns.txt" type=FILE }
+}
+
+loc_article "bad_loc"
+{
+    key = "пря"
+}
